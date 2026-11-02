@@ -1,0 +1,227 @@
+.auth-stage {
+  align-items: stretch;
+}
+
+.auth-stage__panel {
+  overflow: hidden;
+}
+
+.auth-stage__panel::after {
+  content: "USERS";
+  position: absolute;
+  right: -18px;
+  bottom: -12px;
+  font-family: var(--font-display);
+  font-size: clamp(68px, 12vw, 120px);
+  color: var(--color-accent-bg-soft);
+  pointer-events: none;
+}
+
+.user-login-form {
+  gap: 18px;
+}
+
+.account-search {
+  position: relative;
+  z-index: 1;
+}
+
+.role-filter {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.role-filter__button {
+  min-height: 38px;
+  padding: 0 10px;
+  border: 1px solid var(--color-row-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-muted-bg);
+  color: var(--color-text-soft);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.role-filter__button:hover:not(:disabled),
+.role-filter__button:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--color-border);
+  background: var(--color-accent-bg-soft);
+  color: var(--color-pink-soft);
+}
+
+.role-filter__button:focus-visible {
+  outline: 2px solid var(--color-border-strong);
+  outline-offset: 3px;
+}
+
+.role-filter__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.role-filter__button--active {
+  border-color: var(--color-border-strong);
+  background: var(--color-pink);
+  color: var(--color-text-dark);
+}
+
+.user-picker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  max-height: min(44vh, 430px);
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.user-option {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+  min-height: 98px;
+  padding: 16px;
+  border: 1px solid var(--color-row-border);
+  border-radius: var(--radius-md);
+  background: var(--color-muted-bg);
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.user-option:hover:not(:disabled),
+.user-option:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--color-border);
+  background: var(--color-accent-bg-soft);
+}
+
+.user-option:focus-visible {
+  outline: 2px solid var(--color-border-strong);
+  outline-offset: 3px;
+}
+
+.user-option:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.user-option--active {
+  border-color: var(--color-border-strong);
+  background: var(--color-accent-bg);
+  box-shadow: var(--shadow-pink);
+}
+
+.user-option__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-muted-bg-strong);
+  color: var(--color-pink-soft);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.user-option__avatar--student {
+  background: color-mix(in srgb, var(--color-success) 14%, var(--color-muted-bg));
+  color: var(--color-success);
+}
+
+.user-option__avatar--teacher {
+  background: var(--color-accent-bg);
+  color: var(--color-pink-soft);
+}
+
+.user-option__avatar--admin {
+  background: color-mix(in srgb, var(--color-warning) 14%, var(--color-muted-bg));
+  color: var(--color-warning);
+}
+
+.user-option__body {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.user-option__title {
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.user-option__email,
+.user-option__meta {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.user-option__state {
+  justify-self: end;
+  min-width: 76px;
+  padding: 8px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-soft);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.user-option--active .user-option__state {
+  background: var(--color-pink);
+  color: var(--color-text-dark);
+}
+
+.selected-user {
+  position: relative;
+  z-index: 1;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.selected-user strong {
+  color: var(--color-pink-soft);
+}
+
+@media (max-width: 680px) {
+  .role-filter {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .user-option {
+    grid-template-columns: 1fr;
+  }
+
+  .user-option__state {
+    justify-self: start;
+  }
+}

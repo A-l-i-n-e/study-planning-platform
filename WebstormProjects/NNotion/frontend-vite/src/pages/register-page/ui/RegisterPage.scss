@@ -1,0 +1,18 @@
+.auth-stage {
+  align-items: stretch;
+}
+
+.auth-stage__panel {
+  overflow: hidden;
+}
+
+.auth-stage__panel::after {
+  content: "JOIN";
+  position: absolute;
+  right: -18px;
+  bottom: -12px;
+  font-family: var(--font-display);
+  font-size: clamp(68px, 12vw, 120px);
+  color: var(--color-accent-bg-soft);
+  pointer-events: none;
+}

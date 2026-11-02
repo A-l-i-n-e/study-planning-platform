@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Преподаватель | NNotion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page-shell">
+    <div class="page-container">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">NN</div>
+                <div>
+                    <div class="brand-title">NNotion</div>
+                    <div class="brand-subtitle">Календарь преподавателя</div>
+                </div>
+            </div>
+
+            <div class="topbar-actions">
+                <div class="user-badge">Роль: Преподаватель</div>
+                <a class="btn btn-soft" href="admin.html">К администратору</a>
+                <a class="btn btn-primary" href="#lesson-modal">+ Добавить занятие</a>
+            </div>
+        </header>
+
+        <div class="dashboard-layout">
+            <main class="calendar-shell">
+                <div class="calendar-toolbar">
+                    <div class="calendar-toolbar-left">
+                        <a class="icon-btn" href="#">←</a>
+                        <a class="icon-btn" href="#">→</a>
+                        <h1 class="calendar-title">Апрель 2026</h1>
+                    </div>
+
+                    <div class="calendar-toolbar-right">
+                        <div class="view-switch">
+                            <a class="active" href="#">Месяц</a>
+                            <a href="#">Неделя</a>
+                            <a href="#">День</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calendar-weekdays">
+                    <div class="weekday">Пн</div>
+                    <div class="weekday">Вт</div>
+                    <div class="weekday">Ср</div>
+                    <div class="weekday">Чт</div>
+                    <div class="weekday">Пт</div>
+                    <div class="weekday">Сб</div>
+                    <div class="weekday">Вс</div>
+                </div>
+
+                <div class="calendar-grid">
+                    <div class="day-cell muted-day">
+                        <span class="day-number">30</span>
+                    </div>
+
+                    <div class="day-cell muted-day">
+                        <span class="day-number">31</span>
+                    </div>
+
+                    <a class="day-cell" href="#lesson-modal">
+                        <span class="day-number">1</span>
+                    </a>
+
+                    <div class="day-cell">
+                        <span class="day-number">2</span>
+                        <div class="event-chip">
+                            <strong>10:30 · ИВТ-301</strong>
+                            Алгоритмы, ауд. 312
+                        </div>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">3</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">4</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">5</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">6</span>
+                        <div class="event-chip dark">
+                            <strong>14:00 · ИВТ-302</strong>
+                            Консультация, ауд. 215
+                        </div>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">7</span>
+                    </div>
+
+                    <div class="day-cell today">
+                        <span class="day-number">8</span>
+                        <div class="event-chip">
+                            <strong>09:00 · ИВТ-301</strong>
+                            Доп. занятие, ауд. 410
+                        </div>
+                        <div class="event-chip dark">
+                            <strong>16:20 · ИВТ-303</strong>
+                            Разбор лабораторных
+                        </div>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">9</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">10</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">11</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">12</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">13</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">14</span>
+                        <div class="event-chip">
+                            <strong>11:00 · ИВТ-304</strong>
+                            Практика, ауд. 118
+                        </div>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">15</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">16</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">17</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">18</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">19</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">20</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">21</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">22</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">23</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">24</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">25</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">26</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">27</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">28</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">29</span>
+                    </div>
+
+                    <div class="day-cell">
+                        <span class="day-number">30</span>
+                    </div>
+
+                    <div class="day-cell muted-day">
+                        <span class="day-number">1</span>
+                    </div>
+
+                    <div class="day-cell muted-day">
+                        <span class="day-number">2</span>
+                    </div>
+
+                    <div class="day-cell muted-day">
+                        <span class="day-number">3</span>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="legend-dot"></span>
+                        Дополнительное занятие
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot dark"></span>
+                        Консультация / разбор
+                    </div>
+                </div>
+            </main>
+
+            <aside class="side-card">
+                <h3>Ближайшие занятия</h3>
+
+                <div class="list">
+                    <div class="list-item">
+                        <span class="tag">Сегодня</span>
+                        <p class="list-item-title">Доп. занятие по алгоритмам</p>
+                        <p class="list-item-text">08 апреля · 09:00 · группа ИВТ-301 · аудитория 410</p>
+                    </div>
+
+                    <div class="list-item">
+                        <span class="tag">Сегодня</span>
+                        <p class="list-item-title">Разбор лабораторных</p>
+                        <p class="list-item-text">08 апреля · 16:20 · группа ИВТ-303 · аудитория 219</p>
+                    </div>
+
+                    <div class="list-item">
+                        <span class="tag">Скоро</span>
+                        <p class="list-item-title">Практика</p>
+                        <p class="list-item-text">14 апреля · 11:00 · группа ИВТ-304 · аудитория 118</p>
+                    </div>
+                </div>
+
+                <p class="footer-note">
+                    Для HTML/CSS-варианта кнопки переключения вида календаря и стрелки пока являются
+                    визуальной основой. Настоящую логику потом добавим в React.
+                </p>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<div id="lesson-modal" class="modal">
+    <div class="modal-card">
+        <div class="modal-header">
+            <div>
+                <h2 class="modal-title">Создание дополнительного занятия</h2>
+                <p class="modal-subtitle">
+                    Нажатие на день календаря открывает это окно. Здесь преподаватель заполняет данные занятия
+                    и отправляет форму.
+                </p>
+            </div>
+
+            <a class="close-btn" href="#">×</a>
+        </div>
+
+        <form>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label" for="lesson-date">Дата</label>
+                    <input class="form-input" id="lesson-date" type="date">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="lesson-time">Время</label>
+                    <input class="form-input" id="lesson-time" type="time">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="lesson-group">Группа</label>
+                    <select class="form-select" id="lesson-group">
+                        <option>ИВТ-301</option>
+                        <option>ИВТ-302</option>
+                        <option>ИВТ-303</option>
+                        <option>ИВТ-304</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="lesson-room">Аудитория</label>
+                    <input class="form-input" id="lesson-room" type="text" placeholder="Например, 410">
+                </div>
+
+                <div class="form-group full-width">
+                    <label class="form-label">Выбор студентов из группы</label>
+                    <div class="students-selector">
+                        <div class="check-list">
+                            <label class="check-item"><input type="checkbox"> Иванова Алина</label>
+                            <label class="check-item"><input type="checkbox"> Петров Дамир</label>
+                            <label class="check-item"><input type="checkbox"> Сафина Лейла</label>
+                            <label class="check-item"><input type="checkbox"> Ахметов Руслан</label>
+                            <label class="check-item"><input type="checkbox"> Ганиева Диана</label>
+                            <label class="check-item"><input type="checkbox"> Сидоров Артём</label>
+                        </div>
+                    </div>
+                    <div class="form-hint">
+                        Позже здесь можно сделать поиск по списку, фильтрацию и множественный выбор через React.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <a class="btn btn-soft" href="#">Отмена</a>
+                <a class="btn btn-primary" href="#">Отправить</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

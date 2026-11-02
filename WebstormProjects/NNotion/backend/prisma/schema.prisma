@@ -1,0 +1,286 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "mysql"
+  //все норм так и должно быть
+}
+
+model users {
+  id        Int        @id @default(autoincrement())
+  email     String     @unique
+  name      String
+  passHash  String
+  role      users_role
+  isActive  Boolean    @default(true)
+  createdAt DateTime   @default(now())
+  groupId   Int?
+
+  group study_groups? @relation(fields: [groupId], references: [id], onDelete: SetNull)
+
+  ownedGroups   study_groups[] @relation("TeacherGroups")
+  events        events[]
+  polls         polls[]
+  votes         votes[]
+  pollResults   poll_results[]
+  notifications notifications[]
+  personalTasks personal_tasks[]
+
+  pollParticipants poll_participants_snapshot[]
+
+  user_notification_settings user_notification_settings?
+  teachingAssignments teaching_assignments[]
+
+  @@index([role])
+}
+
+model study_groups {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String?
+  teacherId   Int?
+
+  teacher users? @relation("TeacherGroups", fields: [teacherId], references: [id], onDelete: SetNull)
+
+  students users[]
+
+  pollTargets poll_target_groups[]
+  events      events[]
+  teachingAssignments teaching_assignments[]
+
+  @@index([teacherId])
+}
+
+model subjects {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  createdAt DateTime @default(now())
+
+  teachingAssignments teaching_assignments[]
+}
+
+model teaching_assignments {
+  id        Int      @id @default(autoincrement())
+  teacherId Int
+  groupId   Int
+  subjectId Int
+  createdAt DateTime @default(now())
+
+  teacher users        @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  group   study_groups @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  subject subjects     @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+
+  @@unique([teacherId, groupId, subjectId])
+  @@index([teacherId, subjectId])
+  @@index([groupId])
+  @@index([subjectId])
+}
+
+model polls {
+  id          Int       @id @default(autoincrement())
+  teacherId   Int
+  title       String
+  description String?
+  discipline  String?
+  lessonType  String     @default("другое")
+  deadlineAt  DateTime
+  threshold   Int?      @default(60)
+  status      polls_status @default(draft)
+  recommendedOptionId Int?
+  finalOptionId       Int?
+  approvedAt          DateTime?
+  createdAt   DateTime  @default(now())
+
+  teacher users @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+
+  options poll_options[]
+  votes   votes[]
+  result  poll_results?
+
+  pollTargets poll_target_groups[]
+  participants poll_participants_snapshot[]
+
+  event events?
+}
+
+model poll_options {
+  id       Int      @id @default(autoincrement())
+  pollId   Int
+  startAt  DateTime
+  endAt    DateTime
+  format   poll_options_format
+  location String?
+  link     String?
+
+  poll polls @relation(fields: [pollId], references: [id], onDelete: Cascade)
+
+  votes votes[]
+  pollResults poll_results[]
+}
+
+model poll_results {
+  id               Int      @id @default(autoincrement())
+  pollId           Int      @unique @map("poll_id")
+  selectedOptionId Int      @map("selected_option_id")
+  teacherId        Int      @map("teacher_id")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  poll           polls        @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  selectedOption poll_options @relation(fields: [selectedOptionId], references: [id], onDelete: Cascade)
+  teacher        users        @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+
+  @@index([selectedOptionId])
+  @@index([teacherId])
+}
+
+model votes {
+  id        Int      @id @default(autoincrement())
+  pollId    Int
+  optionId  Int
+  studentId Int
+  votedAt   DateTime @default(now())
+
+  poll   polls        @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  option poll_options @relation(fields: [optionId], references: [id], onDelete: Cascade)
+  user   users        @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([pollId, optionId, studentId])
+}
+
+model poll_target_groups {
+  pollId    Int
+  groupId   Int
+  createdAt DateTime @default(now())
+
+  poll  polls        @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  group study_groups @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  @@id([pollId, groupId])
+}
+
+model poll_participants_snapshot {
+  pollId    Int
+  studentId Int
+  createdAt DateTime @default(now())
+
+  poll  polls @relation(fields: [pollId], references: [id], onDelete: Cascade)
+  user  users @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@id([pollId, studentId])
+}
+
+model events {
+  id          Int      @id @default(autoincrement())
+  pollId      Int?     @unique
+  teacherId   Int
+  groupId     Int?
+  title       String
+  description String?
+  discipline  String?
+  lessonType  String   @default("другое")
+  startAt     DateTime
+  endAt       DateTime
+  format      events_format
+  location    String?
+  link        String?
+  isOfficial  Boolean  @default(true)
+  status      events_status @default(scheduled)
+  createdAt   DateTime @default(now())
+
+  poll    polls? @relation(fields: [pollId], references: [id])
+  teacher users  @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  group   study_groups? @relation(fields: [groupId], references: [id], onDelete: SetNull)
+
+  @@index([groupId])
+  @@index([teacherId, startAt])
+}
+
+model personal_tasks {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  title       String
+  description String?
+  taskDate    DateTime
+  taskTime    String?
+  completed   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user users @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, taskDate])
+}
+
+model notifications {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  channel   notifications_channel
+  type      String
+  category  String   @default("system")
+  payload   Json?
+  status    notifications_status @default(PENDING)
+  createdAt DateTime @default(now())
+  sentAt    DateTime?
+  readAt    DateTime?
+  scheduledFor DateTime?
+
+  user users @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, category])
+  @@index([scheduledFor])
+}
+
+model user_notification_settings {
+  userId          Int     @id
+  emailEnabled    Boolean @default(true)
+  telegramEnabled Boolean @default(false)
+  telegramChatId  String?
+  inAppEnabled    Boolean @default(true)
+  calendarEnabled Boolean @default(false)
+
+  user users @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum users_role {
+  student
+  teacher
+  admin
+}
+
+enum poll_options_format {
+  ONLINE
+  OFFLINE
+}
+
+enum polls_status {
+  draft
+  active
+  closed
+}
+
+enum events_format {
+  ONLINE
+  OFFLINE
+}
+
+enum events_status {
+  scheduled
+  cancelled
+  completed
+}
+
+enum notifications_channel {
+  EMAIL
+  TELEGRAM
+  IN_APP
+  CALENDAR
+}
+
+enum notifications_status {
+  PENDING
+  SENT
+  FAILED
+}

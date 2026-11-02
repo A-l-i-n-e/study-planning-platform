@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Администратор | NNotion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page-shell">
+    <div class="page-container">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">NN</div>
+                <div>
+                    <div class="brand-title">NNotion</div>
+                    <div class="brand-subtitle">Панель администратора</div>
+                </div>
+            </div>
+
+            <div class="topbar-actions">
+                <div class="user-badge">Роль: Администратор</div>
+                <a class="btn btn-soft" href="register.html">Регистрация</a>
+                <a class="btn btn-danger-soft" href="#">Выйти</a>
+            </div>
+        </header>
+
+        <section class="hero-card">
+            <div class="hero-grid">
+                <div>
+                    <span class="hero-note">Первоначальный вариант интерфейса</span>
+                    <h1 class="hero-title">Управление страницами преподавателя и студента</h1>
+                    <p class="hero-text">
+                        Это стартовая административная страница. Здесь администратор видит общую
+                        сводку по системе и может быстро перейти в интерфейс преподавателя или студента.
+                        Дальше сюда можно будет добавить управление пользователями, группами, аудиториями
+                        и подтверждением дополнительных занятий.
+                    </p>
+                </div>
+
+                <div class="info-stack">
+                    <div class="info-chip">
+                        <strong>Доступ администратора</strong>
+                        <span>Полный просмотр пользовательских страниц и дальнейшее управление контентом платформы.</span>
+                    </div>
+                    <div class="info-chip">
+                        <strong>Следующий этап</strong>
+                        <span>Подключение реальных данных, ролей и логики доступа в React-приложении.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid-3" style="margin-bottom: 24px;">
+            <div class="stat-card">
+                <p class="stat-title">Активные преподаватели</p>
+                <p class="stat-value">24</p>
+                <div class="stat-subtext">Могут создавать дополнительные занятия и заполнять расписание.</div>
+            </div>
+
+            <div class="stat-card">
+                <p class="stat-title">Активные студенты</p>
+                <p class="stat-value">186</p>
+                <div class="stat-subtext">Просматривают календарь, отмечают участие и следят за расписанием.</div>
+            </div>
+
+            <div class="stat-card">
+                <p class="stat-title">Дополнительные занятия</p>
+                <p class="stat-value">41</p>
+                <div class="stat-subtext">Часть занятий уже занесена в календарную сетку текущего месяца.</div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <div class="section-title-row">
+                <div>
+                    <h2 class="section-title">Быстрый переход</h2>
+                    <p class="section-subtitle">Основные страницы, которые доступны администратору для просмотра.</p>
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <a class="quick-link-card" href="teacher.html">
+                    <span class="quick-link-label">Преподаватель</span>
+                    <h3 class="quick-link-title">Страница преподавателя</h3>
+                    <p class="quick-link-text">
+                        Календарь в стиле Google Calendar, просмотр расписания,
+                        открытие формы создания дополнительного занятия и навигация по месяцам.
+                    </p>
+                </a>
+
+                <a class="quick-link-card" href="student.html">
+                    <span class="quick-link-label">Студент</span>
+                    <h3 class="quick-link-title">Страница студента</h3>
+                    <p class="quick-link-text">
+                        Просмотр своей учебной активности в календаре,
+                        список ближайших дополнительных занятий и общая схема расписания.
+                    </p>
+                </a>
+            </div>
+
+            <p class="footer-note">
+                Пока это статический макет. На следующем этапе можно добавить реальные переходы,
+                защиту маршрутов, API и динамическое наполнение.
+            </p>
+        </section>
+    </div>
+</div>
+</body>
+</html>

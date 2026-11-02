@@ -1,0 +1,27 @@
+.app-layout__content {
+  position: relative;
+  z-index: 1;
+}
+
+.demo-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-accent-bg);
+
+  p { font-size: 13px; color: var(--color-text-soft); }
+  .button { flex-shrink: 0; }
+}
+
+.demo-start { padding-block: clamp(24px, 7vh, 80px); }
+.demo-start__roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.demo-start__roles .button { margin-top: auto; }
+
+@media (max-width: 700px) {
+  .demo-notice { align-items: flex-start; flex-direction: column; }
+  .demo-start__roles { grid-template-columns: 1fr; }
+}

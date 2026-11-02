@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студент | NNotion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page-shell">
+    <div class="page-container">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">NN</div>
+                <div>
+                    <div class="brand-title">NNotion</div>
+                    <div class="brand-subtitle">Календарь студента</div>
+                </div>
+            </div>
+
+            <div class="topbar-actions">
+                <div class="user-badge">Роль: Студент</div>
+                <a class="btn btn-soft" href="admin.html">К администратору</a>
+            </div>
+        </header>
+
+        <div class="dashboard-layout">
+            <main class="calendar-shell">
+                <div class="calendar-toolbar">
+                    <div class="calendar-toolbar-left">
+                        <a class="icon-btn" href="#">←</a>
+                        <a class="icon-btn" href="#">→</a>
+                        <h1 class="calendar-title">Апрель 2026</h1>
+                    </div>
+
+                    <div class="calendar-toolbar-right">
+                        <div class="view-switch">
+                            <a class="active" href="#">Месяц</a>
+                            <a href="#">Неделя</a>
+                            <a href="#">День</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calendar-weekdays">
+                    <div class="weekday">Пн</div>
+                    <div class="weekday">Вт</div>
+                    <div class="weekday">Ср</div>
+                    <div class="weekday">Чт</div>
+                    <div class="weekday">Пт</div>
+                    <div class="weekday">Сб</div>
+                    <div class="weekday">Вс</div>
+                </div>
+
+                <div class="calendar-grid">
+                    <div class="day-cell muted-day"><span class="day-number">30</span></div>
+                    <div class="day-cell muted-day"><span class="day-number">31</span></div>
+                    <div class="day-cell"><span class="day-number">1</span></div>
+
+                    <div class="day-cell">
+                        <span class="day-number">2</span>
+                        <div class="event-chip">
+                            <strong>10:30 · Алгоритмы</strong>
+                            Преп. С. И. Валеев
+                        </div>
+                    </div>
+
+                    <div class="day-cell"><span class="day-number">3</span></div>
+                    <div class="day-cell"><span class="day-number">4</span></div>
+                    <div class="day-cell"><span class="day-number">5</span></div>
+
+                    <div class="day-cell"><span class="day-number">6</span></div>
+                    <div class="day-cell"><span class="day-number">7</span></div>
+
+                    <div class="day-cell today">
+                        <span class="day-number">8</span>
+                        <div class="event-chip">
+                            <strong>09:00 · Доп. занятие</strong>
+                            ИВТ-301 · ауд. 410
+                        </div>
+                        <div class="event-chip dark">
+                            <strong>16:20 · Разбор лабораторных</strong>
+                            Присутствие подтверждено
+                        </div>
+                    </div>
+
+                    <div class="day-cell"><span class="day-number">9</span></div>
+                    <div class="day-cell"><span class="day-number">10</span></div>
+                    <div class="day-cell"><span class="day-number">11</span></div>
+                    <div class="day-cell"><span class="day-number">12</span></div>
+                    <div class="day-cell"><span class="day-number">13</span></div>
+
+                    <div class="day-cell">
+                        <span class="day-number">14</span>
+                        <div class="event-chip">
+                            <strong>11:00 · Практика</strong>
+                            ИВТ-304 · ауд. 118
+                        </div>
+                    </div>
+
+                    <div class="day-cell"><span class="day-number">15</span></div>
+                    <div class="day-cell"><span class="day-number">16</span></div>
+                    <div class="day-cell"><span class="day-number">17</span></div>
+                    <div class="day-cell"><span class="day-number">18</span></div>
+                    <div class="day-cell"><span class="day-number">19</span></div>
+                    <div class="day-cell"><span class="day-number">20</span></div>
+                    <div class="day-cell"><span class="day-number">21</span></div>
+                    <div class="day-cell"><span class="day-number">22</span></div>
+                    <div class="day-cell"><span class="day-number">23</span></div>
+                    <div class="day-cell"><span class="day-number">24</span></div>
+                    <div class="day-cell"><span class="day-number">25</span></div>
+                    <div class="day-cell"><span class="day-number">26</span></div>
+                    <div class="day-cell"><span class="day-number">27</span></div>
+                    <div class="day-cell"><span class="day-number">28</span></div>
+                    <div class="day-cell"><span class="day-number">29</span></div>
+                    <div class="day-cell"><span class="day-number">30</span></div>
+                    <div class="day-cell muted-day"><span class="day-number">1</span></div>
+                    <div class="day-cell muted-day"><span class="day-number">2</span></div>
+                    <div class="day-cell muted-day"><span class="day-number">3</span></div>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="legend-dot"></span>
+                        Запланированное доп. занятие
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot dark"></span>
+                        Подтверждённое участие
+                    </div>
+                </div>
+            </main>
+
+            <aside class="side-card">
+                <h3>Моё расписание</h3>
+
+                <div class="list">
+                    <div class="list-item">
+                        <span class="tag">Сегодня</span>
+                        <p class="list-item-title">Доп. занятие по алгоритмам</p>
+                        <p class="list-item-text">09:00 · ауд. 410 · преподаватель С. И. Валеев</p>
+                    </div>
+
+                    <div class="list-item">
+                        <span class="tag">Подтверждено</span>
+                        <p class="list-item-title">Разбор лабораторных</p>
+                        <p class="list-item-text">16:20 · ИВТ-301 · преподаватель М. А. Сафина</p>
+                    </div>
+
+                    <div class="list-item">
+                        <span class="tag">Скоро</span>
+                        <p class="list-item-title">Практика по теме 4</p>
+                        <p class="list-item-text">14 апреля · 11:00 · аудитория 118</p>
+                    </div>
+                </div>
+
+                <p class="footer-note">
+                    В дальнейшем здесь можно добавить фильтр по дисциплине, статус участия,
+                    подтверждение посещения и уведомления.
+                </p>
+            </aside>
+        </div>
+    </div>
+</div>
+</body>
+</html>
